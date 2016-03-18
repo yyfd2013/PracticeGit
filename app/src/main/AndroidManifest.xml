@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lanou.broadcast" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 飞行模式静态注册-->
+        <receiver android:name=".AirplaneModeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- *********************注册MyselfActivity***********************-->
+        <activity android:name="myself.MyselfActivity">
+            <intent-filter>
+                <action android:name="com.lanou.broadcastdemo.MYSELE_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 注册MyselfActivity的广播接收器-->
+        <receiver android:name="myself.FirstBroadCast">
+            <intent-filter>
+                <action android:name="com.lanou.broadcast.TEXT"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
